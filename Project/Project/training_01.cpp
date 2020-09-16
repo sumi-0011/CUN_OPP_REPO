@@ -2,19 +2,22 @@
 class SetValue {
 	int x, y;		//기본 접근제어자는 private
 public: 
-	void setXY(int a, int b) {
+	void setX(int a) {
 		x = a;
+	}
+	void setY(int b) {
 		y = b;
 	}
-	void show() {
+	void print() {
 		std::cout << "X = " << x << " ,Y = " << y << std::endl;
 	}
 };
 
 int main() {
 	SetValue obj;
-	obj.setXY(33, 44);
-	obj.show();
+	obj.setX(33);
+	obj.setY(44);
+	obj.print();
 
 	return 0;
 }
