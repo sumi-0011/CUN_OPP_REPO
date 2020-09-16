@@ -8,8 +8,14 @@ public:
 	void setY(int b) {
 		y = b;
 	}
+	int getX() {
+		return x;
+	}
+	int getY() {
+		return y;
+	}
 	void print() {
-		std::cout << "X = " << x << " ,Y = " << y << std::endl;
+		std::cout << "X = " << getX() << " ,Y = " << getY() << std::endl;
 	}
 };
 
