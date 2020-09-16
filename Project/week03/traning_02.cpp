@@ -1,9 +1,9 @@
 #include <iostream>
 #define MAXSTACKSIZE 1000//스택의 최대 크기
 
-class Stack{
+class Stack {
 	int top;
-public :
+public:
 	int a[MAXSTACKSIZE];//스택
 
 	Stack() { top = -1; } //스택의 꼭대기 값 초기화
@@ -19,7 +19,7 @@ bool Stack::push(int x) {
 	else {
 		//코드 구현: 스택에 데이터 넣기
 		a[++top] = x;
-		
+
 		std::cout << x << " 이 스택에 들어갔습니다." << std::endl;
 		return true;
 	}
@@ -27,7 +27,7 @@ bool Stack::push(int x) {
 
 int Stack::pop() {
 	if (top < 0) {
-		std::cout<<"오류 : 스택이 비었습니다." << std::endl;
+		std::cout << "오류 : 스택이 비었습니다." << std::endl;
 		return 0;
 	}
 	else {

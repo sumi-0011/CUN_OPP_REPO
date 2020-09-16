@@ -15,19 +15,16 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="hellogit.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="homework2.c">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="training_01.cpp">
+    <ClCompile Include="traning_01.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="traning_02.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="homework_02.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="homework_02.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>

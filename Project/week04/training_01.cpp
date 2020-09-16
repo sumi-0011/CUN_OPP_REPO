@@ -1,6 +1,6 @@
 #include <iostream>
 class SetValue {
-	int x, y;		//±âº» Á¢±ÙÁ¦¾îÀÚ´Â private
+	int x, y;		//ë””í´íŠ¸ ê°’ì´ private
 public: 
 	void setX(int a) {
 		x = a;
