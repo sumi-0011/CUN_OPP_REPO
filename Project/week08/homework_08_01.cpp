@@ -16,7 +16,7 @@ public:
 		m_value = v;
 	}
 	static GlobalClass* instance() {
-		// ³»¿ëÀ» ¿Ï¼º ÇÏ½Ã¿À.
+		// ë‚´ìš©ì„ ì™„ì„± í•˜ì‹œì˜¤.
 		if (!s_instance) {
 			s_instance = new GlobalClass;
 		}
