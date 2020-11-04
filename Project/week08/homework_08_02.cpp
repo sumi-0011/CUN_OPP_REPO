@@ -34,7 +34,7 @@ private:
 	Strategy* strategy;
 public:
 	Context(Strategy* s) {
-		strategy = s;
+		this->strategy = s;
 
 		//std::cout << "생성자" << strategy->doOperation(10,5) << '\n';
 	}

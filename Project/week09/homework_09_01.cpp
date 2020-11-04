@@ -13,7 +13,7 @@ public:
 	int operator++(int) { //postfix operation (indicated by dummy 'int')
 		MyData temp = *this;
 		this->number += 1;
-
+		
 		return temp.number;
 	}
 	int operator++() { //prefix operation
