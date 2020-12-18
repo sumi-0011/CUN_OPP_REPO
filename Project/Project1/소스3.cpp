@@ -33,18 +33,22 @@ int main() {
         /*nextPage(in);*/
         /*inputWord(in, 2, 2, "hello\n");*/
         nextPage(in);
+        
         cout << LINE;
         cout << "----------------------------------------------------------------------------------" << endl;
-        cout << "prev";/*
+        nextPage(in);
         cout << "----------------------------------------------------------------------------------" << endl;
+        cout << "prev";
         prevPage(in);
+/*
+       
         cout << "----------------------------------------------------------------------------------" << endl;
         prevPage(in);
         cout << "----------------------------------------------------------------------------------" << endl;
         */prevPage(in);
         cout << "----------------------------------------------------------------------------------" << endl;
 
-        nextPage(in);
+        prevPage(in);
     }  
     in.close();
     return 0;
@@ -52,11 +56,11 @@ int main() {
 void initPage(std::ifstream& in) {
     in.seekg(0, ios::beg);
     char x[100];
-
-    for(int i=0;i<20 && (!in.eof());i++, LINE++){
+    int cur_line = LINE;
+    for(int i=0;i<20 && (!in.eof());i++, cur_line++){
         in.read(x, 75);
         x[76] = '\0';
-        cout << LINE << " | " << x << '\n';    //지금은 읽은 문자열 바로 출력.
+        cout << cur_line << " | " << x << '\n';    //지금은 읽은 문자열 바로 출력.
     }
     in.seekg(ONE_PAGE_BEG, ios::cur);
 }
@@ -67,28 +71,32 @@ void nextPage(std::ifstream& in) {
     char x[100];
     int read_size=75;
     int cur_size = in.tellg();
-    for (int i = 0; i < 20 && (!in.eof()); i++, LINE++)
+    if(LINE*75 <= END_SIZE()) {
+}
+    int cur_line = LINE:
+    for (int i = 0; i < 20 && (!in.eof()); i++, cur_line++)
     {
        if (cur_size + 75 > END_SIZE) {
             read_size = END_SIZE - cur_size;
             cout << "read_size: " << read_size << endl;
             in.read(x, read_size);
             x[read_size+1] = '\0';
-            cout << LINE << " | " << x << '\n';    //지금은 읽은 문자열 바로 출력.
-            int line = LINE % 20 -1;
-            cout << "line" << line << endl;
-            line = line * 75 + 20 * 75;
-            cout << in.tellg() << endl;
-            cout << "line" << line << endl;
-            in.seekg(-line, ios::cur);
+            cout << cur_line << " | " << x << '\n';    //지금은 읽은 문자열 바로 출력.
             break;
         }
         in.read(x, read_size);
         x[76] = '\0';
-        cout << LINE << " | " << x << '\n';    //지금은 읽은 문자열 바로 출력.
+        cout << cur_line << " | " << x << '\n';    //지금은 읽은 문자열 바로 출력.
        
         cur_size += 75;
     }
+    if (in.eof()) {
+        cout << "끝"<< '\n';
+    }
+    else {
+        cout << "no" << '\n';
+    }
+    cout << "cur_line" <<cur_line << '\n';
     in.seekg(ONE_PAGE_BEG, ios::cur);     //현재 페이지의 첫부분으로 포인트를 넘겨줌
      
 
@@ -96,25 +104,23 @@ void nextPage(std::ifstream& in) {
 }
 void prevPage(std::ifstream& in) {
     //이전페이지이므로 40줄, 한줄당 75byte이므로 40*75 byte 이전(-)으로 포인터를 이동
-    
+    int cur_line = LINE;
     int temp = LINE % 20;
     if (temp!= 0) {
-        LINE -= (temp);
-        LINE -= 19;
-        
+        cur_line -= (temp+19);
     }
     else {
-        LINE -= 40;
+        cur_line -= 40;
     }
     cout << in.tellg() << endl;
     in.seekg(ONE_PAGE_BEG ,ios::cur);
 
     char x[100];
-    for (int i = 0; i < 20 && (!in.eof()); i++, LINE++)
+    for (int i = 0; i < 20 && (!in.eof()); i++, cur_line++)
     {
         in.read(x, 75);
         x[76] = '\0';
-        cout << LINE << " | " << x << '\n';    //지금은 읽은 문자열 바로 출력.
+        cout << cur_line << " | " << x << '\n';    //지금은 읽은 문자열 바로 출력.
     }
     in.seekg(ONE_PAGE_BEG, ios::cur);
 }
